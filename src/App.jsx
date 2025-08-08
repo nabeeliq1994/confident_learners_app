@@ -1,12 +1,20 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
 function App() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>🚀 Welcome to My First React App!</h1>
-      <p>This is running on Vite + React.</p>
-      <button onClick={() => alert("Hello! You clicked the button.")}>
-        Click Me
-      </button>
-    </div>
+    <Router>
+      <nav style={{ textAlign: "center", margin: "20px" }}>
+        <Link to="/" style={{ margin: "10px" }}>Home</Link>
+        <Link to="/about" style={{ margin: "10px" }}>About</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 
